@@ -14,6 +14,7 @@ h1 {
   font-weight: 400;
   font-family: "Bellefair";
   text-transform: uppercase;
+  animation: levitation 2s infinite linear;
 }
 
 h2 {
@@ -40,12 +41,21 @@ h5 {
   padding-bottom: 5%;
 }
 
-body {
-  background-image: url("../assets/home/background-home-desktop.jpg");
+.changeSite {
+  content: "";
+  top: 0;
+  left: 0;
   width: 100%;
-  height: 100vh;
-  background-size: cover;
-  background-repeat: no-repeat;
+  height: 100%;
+  z-index: 2000;
+  position: fixed;
+  background-color: #fff;
+  transform: scaleY(0);
+  transition: 0.5s;
+}
+
+body {
+  background-color: #0B0D17;
   color: #FFFFFF;
   overflow: hidden;
 }
@@ -58,6 +68,7 @@ body header {
   padding: 5px;
   margin: 2% 0 0 4%;
   background-color: transparent;
+  position: fixed;
 }
 body header .border {
   width: 40%;
@@ -71,6 +82,7 @@ body header nav {
   background-color: rgba(255, 255, 255, 0.1);
   -webkit-backdrop-filter: blur(6px);
           backdrop-filter: blur(6px);
+  z-index: 10001;
 }
 body header nav ul {
   display: flex;
@@ -81,14 +93,9 @@ body header nav ul {
   padding: 0.2rem 6%;
 }
 body header nav ul li {
-  font-family: "Barlow Condensed";
-  font-style: normal;
-  font-weight: 400;
-  list-style: none;
-  font-size: 1.7rem;
-  letter-spacing: 3px;
   z-index: 1;
   position: relative;
+  list-style: none;
 }
 body header nav ul li::before {
   content: "";
@@ -107,11 +114,188 @@ body header nav ul li:hover::before {
 body header nav ul li:active {
   transform: scaleX(1);
 }
+body header nav ul li a {
+  text-decoration: none;
+  color: #FFFFFF;
+  font-family: "Barlow Condensed";
+  font-style: normal;
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: 1.7rem;
+  letter-spacing: 3px;
+  transition-property: scroll;
+}
+body #home {
+  background-image: url("../assets/home/background-home-desktop.jpg");
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+body #destination {
+  background-image: url("../assets/destination/background-destination-desktop.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+body #destination h5 {
+  left: 5%;
+  position: relative;
+  top: 25%;
+  text-transform: uppercase;
+}
+body #destination .planet {
+  position: absolute;
+  left: 5%;
+  bottom: 5%;
+  width: 100%;
+  height: 60vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+body #destination .planet .imgPlanet {
+  max-width: 600px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+body #destination .planet .imgPlanet img {
+  width: 300px;
+  height: 300px;
+}
+body #destination .planet .info {
+  max-width: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+}
+body #destination .planet .info .menuPlanet ul {
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+}
+body #destination .planet .info .menuPlanet ul li {
+  width: 100%;
+  margin: 0 15%;
+  list-style: none;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  position: relative;
+  text-align: center;
+}
+body #destination .planet .info .menuPlanet ul li::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  border-bottom: 2px solid white;
+  position: absolute;
+  top: 50%;
+  z-index: 2;
+  transform: scaleX(0);
+  transition: 0.5s;
+}
+body #destination .planet .info .menuPlanet ul li:hover::before {
+  transform: scaleX(1);
+}
+body #destination .planet .info .menuPlanet ul li:active {
+  transform: scaleX(1);
+}
+body #destination .planet .info h1 {
+  margin-top: 5%;
+}
+body #destination .planet .info .describe {
+  width: 70%;
+  letter-spacing: 1px;
+  font-size: 1.5rem;
+  text-align: justify;
+  margin: 5% 0 5% 2%;
+  position: relative;
+}
+body #destination .planet .info .describe::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  left: 0;
+  margin-top: 30px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.411);
+}
+body #destination .planet .info .stats {
+  width: 65%;
+  margin-left: 2%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+body #destination .planet .info .stats div {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: start;
+}
+body #destination .planet .info .stats div h5 {
+  font-size: 1.1rem;
+}
+body #destination .planet .info .stats div p {
+  margin-left: 5%;
+  font-size: 1.5rem;
+}
+body #crew {
+  background-image: url("../assets/crew/background-crew-desktop.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+body #crew h5 {
+  left: 10%;
+  position: relative;
+  top: 22.5%;
+  text-transform: uppercase;
+}
+body #crew .info {
+  position: absolute;
+  width: 30%;
+  bottom: 25%;
+  left: 10%;
+}
+body #crew .info h1 {
+  width: 150%;
+  font-size: 48px;
+  margin: 2% 0;
+}
+body #crew .info h3 {
+  font-family: "Barlow Condensed";
+  font-size: 36px;
+}
+body #crew .info p {
+  font-family: "Barlow Condensed";
+  width: 100%;
+  font-size: 1.5rem;
+}
+body #crew .img {
+  position: absolute;
+  right: 0%;
+  bottom: 0;
+}
+body #crew .img img {
+  width: 70%;
+}
+body #crew .dots .dot {
+  width: 15px;
+  height: 15px;
+  background-color: #fff;
+  border-radius: 360px;
+}
 body .main {
   position: absolute;
   margin-left: 10%;
   bottom: 10%;
   width: 30%;
+}
+body .main h5 {
+  margin-top: 40%;
 }
 body .main p {
   font-family: "Barlow";
@@ -138,4 +322,28 @@ body button {
 body button:hover {
   box-shadow: 0 0 0 30px rgba(11, 13, 23, 0.5);
   letter-spacing: 6px;
+}
+
+section {
+  width: 100%;
+  height: 0vh;
+}
+
+section:active {
+  height: 100vh;
+}
+
+@keyframes levitation {
+  0% {
+    transform: translateX(0%);
+  }
+  25% {
+    transform: translateX(1%);
+  }
+  75% {
+    transform: translateX(-1%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
 }/*# sourceMappingURL=style.css.map */

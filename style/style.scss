@@ -12,6 +12,7 @@ $whiteAlpha: rgba($color: #ffffff, $alpha: .1);
     font-size: 75%;
     font-family: 'Bellefair';
     font-weight: 400;
+    
 }
 
 h1 {
@@ -19,6 +20,7 @@ h1 {
     font-weight: 400;
     font-family: 'Bellefair';
     text-transform: uppercase;
+    animation: levitation 2s infinite linear;
 }
 
 h2 {
@@ -44,16 +46,25 @@ h5 {
     color: #ffffffd0;
     padding-bottom: 5%;
 }
+.changeSite{
+    content: '';
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2000;
+    position: fixed;
+    background-color: #fff;
+    transform: scaleY(0);
+    transition: 0.5s;
+}
+
 
 body {
-    background-image: url("../assets/home/background-home-desktop.jpg");
-    width: 100%;
-    height: 100vh;
-    background-size: cover;
-    background-repeat: no-repeat;
+    background-color: $darkBlue;
     color: $white;
     overflow: hidden;
-
+    
     header {
         display: flex;
         flex-direction: row;
@@ -63,7 +74,7 @@ body {
         padding: 5px;
         margin: 2% 0 0 4%;
         background-color: transparent;
-
+        position: fixed;
         .border {
             width: 40%;
             position: absolute;
@@ -76,7 +87,7 @@ body {
             height: 96px;
             background-color: $whiteAlpha;
             backdrop-filter: blur(6px);
-
+            z-index: 10001;
             ul{
                 display: flex;
                 flex-direction: row;
@@ -85,14 +96,9 @@ body {
                 height: 100%;
                 padding: 0.2rem 6%;
                 li {
-                    font-family: 'Barlow Condensed';
-                    font-style: normal;
-                    font-weight: 400;
-                    list-style: none;
-                    font-size: 1.7rem;
-                    letter-spacing: 3px;
                     z-index: 1;
                     position: relative;
+                    list-style: none;
                     &::before{
                         content: '';
                         width: 100%;
@@ -110,19 +116,208 @@ body {
                     &:active{
                         transform: scaleX(1);
                     }
+                    a{
+                        text-decoration: none;
+                        color: #FFFFFF;
+                        font-family: 'Barlow Condensed';
+                        font-style: normal;
+                        font-weight: 400;
+                        text-transform: uppercase;
+                        font-size: 1.7rem;
+                        letter-spacing: 3px;
+                        transition-property: scroll;
+
+                    }
                 }
 
             }
 
         }
     }
+    #home{
+        
+        background-image: url("../assets/home/background-home-desktop.jpg");
+        width: 100%;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+    #destination{
+        background-image: url("../assets/destination/background-destination-desktop.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        h5{
+            left: 5%;
+            position: relative;
+            top:25%;
+            text-transform: uppercase;
+        }
+        .planet{
+            
+            position: absolute;
+            left: 5%;
+            bottom: 5%;
+            width: 100%;
+            height: 60vh;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            .imgPlanet{
+                max-width: 600px;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                img{
+                    width: 300px;
+                    height: 300px;
+                }
+            }
+            .info{
+                
+                max-width: 600px;
+                display: flex;
+                justify-content: center;
+                align-items: flex-start;
+                flex-direction: column;
+                .menuPlanet{
+                    ul{
+                        width: 50%;
+                        display: flex;
+                        flex-direction: row;
+                        li{
+                            width: 100%;
+                            margin: 0 15%;
+                            list-style: none;
+                            text-transform: uppercase;
+                            font-size: 1.2rem;
+                            position: relative;
+                            text-align: center;
+                            &::before{
+                                content: '';
+                                width: 100%;
+                                height: 100%;
+                                border-bottom:2px solid white;
+                                position: absolute;
+                                top: 50%;
+                                z-index: 2;
+                                transform: scaleX(0);
+                                transition: 0.5s;
+                            }
+                            &:hover::before{
+                                transform: scaleX(1);
+                            }
+                            &:active{
+                                transform: scaleX(1);
+                            }
+                        }
+                        
+                    }
+                }
+                h1{
+                    margin-top: 5%;
+                }
+                .describe{
+                    width: 70%;
+                    letter-spacing: 1px;
+                    font-size: 1.5rem;
+                    text-align: justify;
+                    margin: 5% 0 5% 2%;
+                    position: relative;
+                    &::after{
+                        content: '';
+                        position: absolute;
+                        width: 100%;
+                        left: 0;
+                        margin-top: 30px;
+                        border-bottom: 2px solid rgba(255, 255, 255, 0.411);
+                    }
+                }
+                .stats{
+                    width: 65%;
+                    margin-left: 2%;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    align-items: center;
+                    flex-wrap: wrap;
+                   
+                    div{
+                        width: 50%;
+                        
+                        display: flex;
+                        justify-content: center;
+                        flex-direction: column;
+                        align-items: start;
+                        h5{
+                            font-size: 1.1rem;
+                        }
+                        p{
+                            margin-left: 5%;
+                            font-size: 1.5rem;
+                        }
+                    }
+                }
 
+            }
+
+        }
+    }
+    #crew{
+        background-image: url("../assets/crew/background-crew-desktop.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        h5{
+            left: 10%;
+            position: relative;
+            top:22.5%;
+            text-transform: uppercase;
+        }
+        .info{
+            position: absolute;
+            width: 30%;
+            bottom: 25%;
+            left: 10%;
+            h1{
+                width: 150%;
+                font-size: 48px;
+                margin: 2% 0;
+            }
+            h3{
+                font-family: 'Barlow Condensed';
+                font-size: 36px;
+            }
+            p{
+                font-family: 'Barlow Condensed';
+                width: 100%;
+                font-size: 1.5rem;
+            }
+        }
+        .img{
+            position: absolute;
+            right:0%;
+            bottom: 0;
+            img{
+                width: 70%;
+            }
+        }
+        .dots{
+            .dot{
+                width: 15px;
+                height: 15px;
+                background-color: #fff;
+                border-radius: 360px;
+            }
+
+        }
+    }
     .main {
         position: absolute;
         margin-left: 10%;
         bottom: 10%;
         width: 30%;
-
+        h5{
+            margin-top: 40%;
+        }
         p {
             font-family: 'Barlow';
             font-style: normal;
@@ -150,5 +345,28 @@ body {
             letter-spacing: 6px;
 
         }
+    }
+}
+
+section{
+    width: 100%;
+    height: 0vh;
+}
+section:active{
+    height: 100vh;
+}
+
+@keyframes levitation{
+    0%{
+        transform: translateX(0%);
+    }
+    25%{
+        transform: translateX(1%);
+    }
+    75%{
+        transform: translateX(-1%);
+    }
+    100%{
+        transform: translateX(0%);
     }
 }

@@ -8,33 +8,77 @@
   <link rel="stylesheet" href="./style/style.css">
   <title>Frontend Mentor | Space tourism website</title>
 </head>
-<body>
+<body onload="load()">
+  <div class="changeSite"></div>
   <header>
     <img src="./assets/shared/logo.svg" alt="">
     <div class="border"></div>
     <nav>
       <ul>
-        <li>00 Home</li>
-        <li>01 Destination</li>
-        <li>02 Crew</li>
-        <li>03 Technology</li>
+        <li><a href="#home" onclick="check_click('home')">00 Home</a></li>
+        <li><a href="#destination"onclick="check_click('destination')">01 Destination</a></li>
+        <li><a href="#crew"onclick="check_click('crew')">02 Crew</a></li>
+        <li><a href="#technology"onclick="check_click('home')">03 Technology</a></li>
       </ul>
     </nav>
   </header>
-  <div class="main">
-    <h5>So, you want to travel to</h5>
-    <h1>Space</h1>
-    <p>
-      Let’s face it; if you want to go to space, you might as well genuinely go to 
-      outer space and not hover kind of on the edge of it. Well sit back, and relax 
-      because we’ll give you a truly out of this world experience!
-    </p>
-  </div>
-  <button>Explore</button>
+  <section id="home">
+    <div class="main">
+      <h5>So, you want to travel to</h5>
+      <h1>Space</h1>
+      <p>
+        Let’s face it; if you want to go to space, you might as well genuinely go to 
+        outer space and not hover kind of on the edge of it. Well sit back, and relax 
+        because we’ll give you a truly out of this world experience!
+      </p>
+    </div> 
+    <button>Explore</button>
+  </section>
   
   
+  <section id="destination">
+    <h5>01 pick your destination</h5>
+    <div class="planet">
+      <div class="imgPlanet"></div>
+      <div class="info">
+        <div class="menuPlanet">
+          <ul>
+            <li onclick="destination(0)">Moon</li>
+            <li onclick="destination(1)">Mars</li>
+            <li onclick="destination(2)">Europa</li>
+            <li onclick="destination(3)">Titan</li>
+          </ul>
+        </div>
+        <h1 class="name"></h1>
+        <p class="describe"></p>
+        <div class="stats">
+          <div class="distance">
+            <h5>Avg. DISTANCE</h5>
+            <p></p>
+          </div>
+          <div class="travelTime">
+            <h5>EST. Travel time</h5>
+            <p></p>
+          </div>
+        </div>
+      </div>
+    </div>
 
+  </section>
+  <section id="crew">
+    <h5> 02 Meet your crew</h5>
+    <div class="info"></div>
+    <div class="dots">
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+    <div class="img">
+      
+    </div>
+  </section>
   
-
+  <script src="./script.js"></script>
 </body>
 </html>
