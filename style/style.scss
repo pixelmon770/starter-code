@@ -16,7 +16,7 @@ $whiteAlpha: rgba($color: #ffffff, $alpha: .1);
 }
 
 h1 {
-    font-size: 150px;
+    font-size: 5rem;
     font-weight: 400;
     font-family: 'Bellefair';
     text-transform: uppercase;
@@ -24,19 +24,19 @@ h1 {
 }
 
 h2 {
-    font-size: 100px;
+    font-size: 4rem;
 }
 
 h3 {
-    font-size: 56px;
+    font-size: 3rem;
 }
 
 h4 {
-    font-size: 32px;
+    font-size: 2rem;
 }
 
 h5 {
-    font-size: 28px;
+    font-size: 1.7rem;
     letter-spacing: 4.75px;
     font-family: 'Barlow Condensed';
     font-style: normal;
@@ -274,38 +274,44 @@ body {
         }
         .info{
             position: absolute;
-            width: 30%;
-            bottom: 25%;
-            left: 10%;
+            width: 30rem;
+            bottom: 10rem;
+            left: 12.5rem;
             h1{
-                width: 150%;
-                font-size: 48px;
+                width: 350%;
                 margin: 2% 0;
             }
             h3{
                 font-family: 'Barlow Condensed';
-                font-size: 36px;
+                
             }
             p{
                 font-family: 'Barlow Condensed';
                 width: 100%;
-                font-size: 1.5rem;
+                font-size: 2rem;
             }
         }
         .img{
             position: absolute;
-            right:0%;
+            right:15rem;
             bottom: 0;
             img{
-                width: 70%;
+                width: 30rem;
             }
         }
         .dots{
+            
+            position: absolute;
+            bottom: 5rem;
+            left: 15rem;
+            display: flex;
+            flex-direction: row;
             .dot{
                 width: 15px;
                 height: 15px;
-                background-color: #fff;
                 border-radius: 360px;
+                margin: 0 1rem;
+
             }
 
         }
@@ -347,7 +353,16 @@ body {
         }
     }
 }
+.d0,.d1,.d2,.d3{
+    background-color: #ffffff7c;
+}
 
+.hide{
+    animation: hiden 1s linear forwards;
+}
+.show{
+    animation: shown 1s linear forwards;
+}
 section{
     width: 100%;
     height: 0vh;
@@ -355,7 +370,26 @@ section{
 section:active{
     height: 100vh;
 }
-
+@keyframes hiden{
+    0%{
+        transform: translateX(0);
+        opacity: 1;
+    }
+    100%{
+        transform: translateX(30%);
+        opacity: 0;
+    }
+}
+@keyframes shown{
+    0%{
+        transform: translateX(30%);
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(0%);
+        opacity: 1;
+    }
+}
 @keyframes levitation{
     0%{
         transform: translateX(0%);

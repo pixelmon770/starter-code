@@ -1,5 +1,6 @@
 let Body = document.querySelector(".changeSite");
 let a_click = document.querySelectorAll("li a");
+let dot = document.querySelectorAll(".dot");
 a_click.forEach(el =>{
     el.addEventListener("click", (x)=>{
         document.body.style.opacity="0";
@@ -30,6 +31,9 @@ function check_click(x){
     if(x == 'destination'){
         destination(0);
     }
+    else if(x == 'crew'){
+        crew(0);
+    }
     document.querySelector(`#${x}`).style.height="100vh";
     document.querySelector(`#${x}`).style.visibility="visible";
     document.querySelector(`#${x}`).style.opacity="1";
@@ -51,19 +55,49 @@ function destination(x){
 }
 
 function crew(x){
+    for(let y = 0;y<=3;y++){
+        document.querySelector(".d"+(y)).style.backgroundColor="#ffffff7c";
+    }
+    const myTimeout1 = setTimeout(()=>{
+        document.querySelector("#crew .img").classList.add("hide");
+        document.querySelector("#crew .img").classList.remove("show");
+
+        document.querySelector("#crew .info").classList.add("hide");
+        document.querySelector("#crew .info").classList.remove("show");
+    },10000)
+    const myTimeout2 =setTimeout(()=>{
+        if(x==3){
+            crew(0);
+        }
+        else{
+            crew(x+1);
+        }
+        
+    },11000)
+    const myTimeout3 = setTimeout(()=>{
+        document.querySelector("#crew .info").classList.add("show");
+        document.querySelector("#crew .info").classList.remove("hide");
+        document.querySelector("#crew .img").classList.add("show");
+        document.querySelector("#crew .img").classList.remove("hide");
+        
+    },12000)
+    clearTimeout(myTimeout1,myTimeout2,myTimeout3);
+
     fetch("./data.json")
     .then(res =>{
         return res.json()
     })
     .then(data =>{
+        
+        document.querySelector(".d"+(x)).style.backgroundColor="white";
         document.querySelector("#crew .info").innerHTML=`
-        <h3 class="title">${data.crew[0].role}</h3>
-        <h1 class="name">${data.crew[0].name}</h1>
-        <p class="description">${data.crew[0].bio}</p>
+        <h3 class="title">${data.crew[x].role}</h3>
+        <h1 class="name">${data.crew[x].name}</h1>
+        <p class="description">${data.crew[x].bio}</p>
         `;
         document.querySelector("#crew .img").innerHTML=`
-        <img src="${data.crew[0].images.png}">
+        <img src="${data.crew[x].images.png}">
         `;
+
     })
 }
-crew(1);
