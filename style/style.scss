@@ -316,6 +316,58 @@ body {
 
         }
     }
+    #tech{
+        background-image: url("../assets/technology/background-technology-desktop.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        h5{
+            position: absolute;
+            top: 25%;
+            left: 10%;
+        }
+        .main{
+            
+            height: 60vh;
+            width: 90vw;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            max-width: 1200px;
+            .description{
+                width: 40vw;
+                height: 100%;
+                margin-top: 5rem;
+            }
+            .menu__tech{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                max-height: 300px;
+                margin-top: 5rem;
+                p{
+
+                    margin: 1rem;
+                    width: 50px;
+                    height: 50px;
+                    border: 1px solid wheat;
+                    border-radius: 360px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    font-size: 2.2rem;
+                }
+            }
+            .img{
+                img{
+                    width: 80%;
+                }
+            }
+        }
+    }
+    
     .main {
         position: absolute;
         margin-left: 10%;

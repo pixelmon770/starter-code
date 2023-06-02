@@ -31,14 +31,11 @@ function check_click(x){
     if(x == 'destination'){
         destination(0);
     }
-    else if(x == 'crew'){
-        crew(0);
-    }
     document.querySelector(`#${x}`).style.height="100vh";
     document.querySelector(`#${x}`).style.visibility="visible";
     document.querySelector(`#${x}`).style.opacity="1";
 }
-
+crew(0);
 function destination(x){
     fetch("./data.json")
     .then(res =>{
@@ -64,7 +61,7 @@ function crew(x){
 
         document.querySelector("#crew .info").classList.add("hide");
         document.querySelector("#crew .info").classList.remove("show");
-    },10000)
+    },8000)
     const myTimeout2 =setTimeout(()=>{
         if(x==3){
             crew(0);
@@ -73,15 +70,15 @@ function crew(x){
             crew(x+1);
         }
         
-    },11000)
+    },9000)
     const myTimeout3 = setTimeout(()=>{
         document.querySelector("#crew .info").classList.add("show");
         document.querySelector("#crew .info").classList.remove("hide");
         document.querySelector("#crew .img").classList.add("show");
         document.querySelector("#crew .img").classList.remove("hide");
         
-    },12000)
-    clearTimeout(myTimeout1,myTimeout2,myTimeout3);
+    },9000)
+    
 
     fetch("./data.json")
     .then(res =>{
@@ -101,3 +98,16 @@ function crew(x){
 
     })
 }
+
+function tech(x){
+    fetch("./data.json")
+    .then(res =>{
+        return res.json()
+    })
+    .then(data =>{
+        document.querySelector("#tech .main .description .title").innerHTML=`${data.technology[x].name}`;
+        document.querySelector("#tech .main .description p").innerHTML=`${data.technology[x].description}`;
+        document.querySelector("#tech .main .img").innerHTML=`<img src='${data.technology[x].images.portrait}' alt='tech'>`;
+    })
+}
+tech(0);
